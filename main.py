@@ -6,6 +6,9 @@ class Analyser():
             s = s.replace(c, '')
             s = s.lower()
             self.words = s.split()
+            result = s
+            with open("result.txt", "w", encoding="utf-8") as file:
+                file.write(str(result))
     def no_of_words(self):
         return len(self.words)
 
@@ -17,7 +20,7 @@ class Analyser():
         return len([w for w in self.words
                     if len(w)==n])
 
-s = input()
+s = input("Введите текст: ")
 analyse = Analyser(s)
 print(analyse.words)
 print("Кол-во слов:", analyse.no_of_words())
@@ -90,3 +93,4 @@ print("Кол-во слов, начинающихся с 'я':",
 print("Количество слов из 4 букв:",
       analyse.no_with_length(4))
 
+input("Нажмите Enter для выхода")
